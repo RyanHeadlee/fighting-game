@@ -1,0 +1,45 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.mainContainer {
+  position: relative;
+  display: inline-block;
+}
+
+.infoContainer {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  padding: 20px;
+}
+
+.playerHealth {
+  background-color: yellow;
+  height: 30px;
+  width: 100%;
+}
+
+.timer {
+  background-color: red;
+  width: 100px;
+  height: 100px;
+  flex-shrink: 0;
+}
+
+.enemyHealth {
+  background-color: yellow;
+  height: 30px;
+  width: 100%;
+}

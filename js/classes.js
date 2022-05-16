@@ -27,8 +27,7 @@ class Sprite {
     );
   }
 
-  update() {
-    this.draw();
+  animateFrames() {
     this.framesElapsed++;
 
     if (this.framesElapsed % this.framesHold === 0) {
@@ -38,6 +37,10 @@ class Sprite {
         this.framesCurrent = 0;
       }
     }
+  }
+
+  update() {
+    this.draw();
   }
 }
 
@@ -83,6 +86,7 @@ class Fighter extends Sprite {
 
   update() {
     this.draw();
+    this.animateFrames();
     this.attackBox.position.x = this.position.x + this.attackBox.offset.x;
     this.attackBox.position.y = this.position.y;
     this.position.x += this.velocity.x;

@@ -3,13 +3,13 @@ class Sprite {
     this.position = position;
     this.width = 50;
     this.height = 150;
-    this.image = new Image()
+    this.image = new Image();
     this.image.src = imageSrc;
     this.scale = scale;
     this.framesMax = framesMax;
     this.framesCurrent = 0;
     this.framesElapsed = 0;
-    this.framesHold = 10;
+    this.framesHold = 6;
   }
 
   draw() {
@@ -40,9 +40,27 @@ class Sprite {
   }
 }
 
-class Fighter {
-  constructor({ position, velocity, color = 'red', offset }) {
-    this.position = position;
+class Fighter extends Sprite {
+  constructor({
+    position,
+    velocity,
+    color = "red",
+    offset,
+    imageSrc,
+    scale = 1,
+    framesMax = 1,
+  }) {
+    super({
+      position,
+      imageSrc,
+      scale,
+      framesMax,
+    });
+
+    this.framesMax = framesMax;
+    this.framesCurrent = 0;
+    this.framesElapsed = 0;
+    this.framesHold = 6;
     this.velocity = velocity;
     this.width = 50;
     this.height = 150;
@@ -50,35 +68,19 @@ class Fighter {
     this.attackBox = {
       position: {
         x: this.position.x,
-        y: this.position.y
+        y: this.position.y,
       },
       offset,
       width: 100,
       height: 50,
-    }
+    };
     this.color = color;
     this.isAttacking;
     this.health = 100;
   }
 
-  draw() {
-    c.fillStyle = this.color
-    c.fillRect(this.position.x, this.position.y, this.width, this.height);
-
-    // Attack Box
-    if (this.isAttacking) {
-      c.fillStyle = "green";
-      c.fillRect(
-        this.attackBox.position.x,
-        this.attackBox.position.y,
-        this.attackBox.width,
-        this.attackBox.height
-      );
-    }
-  }
-
   update() {
-    this.draw()
+    this.draw();
     this.attackBox.position.x = this.position.x + this.attackBox.offset.x;
     this.attackBox.position.y = this.position.y;
     this.position.x += this.velocity.x;
@@ -95,6 +97,6 @@ class Fighter {
     this.isAttacking = true;
     setTimeout(() => {
       this.isAttacking = false;
-    }, 100)
+    }, 100);
   }
 }

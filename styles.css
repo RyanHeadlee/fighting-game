@@ -47,6 +47,9 @@ body {
   width: 100px;
   height: 100px;
   flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .enemyHealth {
@@ -68,4 +71,12 @@ body {
   background-color: yellow;
   height: 30px;
   width: 100%;
+}
+
+.finalInfo {
+  position: absolute;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

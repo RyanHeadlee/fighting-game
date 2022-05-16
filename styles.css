@@ -25,10 +25,19 @@ body {
   padding: 20px;
 }
 
-.playerHealth {
+.fullIndicator {
   background-color: yellow;
   height: 30px;
   width: 100%;
+}
+
+.playerHealth {
+  position: absolute;
+  background-color: blue;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
 }
 
 .timer {
@@ -38,8 +47,23 @@ body {
   flex-shrink: 0;
 }
 
-.enemyHealth {
+.fullIndicator {
   background-color: yellow;
+  height: 30px;
+  width: 100%;
+}
+
+.enemyHealth {
+  position: absolute;
+  background-color: blue;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.healthContainer {
+  position: relative;
   height: 30px;
   width: 100%;
 }

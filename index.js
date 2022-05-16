@@ -152,7 +152,7 @@ function animate() {
       rectangle2: enemy
     }) &&
     player.isAttacking == true
-    ) {
+  ) {
     player.isAttacking = false;
     enemy.health -= 20;
     document.querySelector(".enemyHealth").style.width = enemy.health + '%';

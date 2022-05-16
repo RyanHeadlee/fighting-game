@@ -20,11 +20,11 @@ const player = new Fighter({
   position: {
     x: 0,
     y: 0
-  }, 
+  },
   velocity: {
     x: 0,
     y: 10
-  }, 
+  },
   offset: {
     x: 0,
     y: 0
@@ -35,7 +35,7 @@ const enemy = new Fighter({
   position: {
     x: 400,
     y: 100
-  }, 
+  },
   velocity: {
     x: 0,
     y: 0
@@ -81,7 +81,7 @@ function animate() {
   } else if (keys.d.pressed && player.lastKey === 'd') {
     player.velocity.x = 5;
   }
-  
+
   // Enemy Movement
   if (keys.ArrowLeft.pressed && enemy.lastKey === 'ArrowLeft') {
     enemy.velocity.x = -5;
@@ -108,7 +108,7 @@ function animate() {
       rectangle2: player
     }) &&
     enemy.isAttacking == true
-    ) {
+  ) {
     enemy.isAttacking = false;
     player.health -= 20;
     document.querySelector(".playerHealth").style.width = player.health + '%';
@@ -116,7 +116,7 @@ function animate() {
 
   // End game based on health
   if (enemy.health <= 0 || player.health <= 0) {
-    determineWinner({player, enemy, timerId});
+    determineWinner({ player, enemy, timerId });
   }
 }
 
@@ -152,7 +152,7 @@ window.addEventListener('keydown', (event) => {
     case 'ArrowDown':
       enemy.attack();
       break;
-    }
+  }
 });
 
 window.addEventListener('keyup', (event) => {

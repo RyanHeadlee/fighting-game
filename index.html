@@ -1,31 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <script src="js/utils.js" defer></script>
-  <script src="js/classes.js" defer></script>
-  <script src="js/index.js" defer></script>
-  <title>Fighting Game</title>
-</head>
-<body>
-  <div class="mainContainer">
-    <div class="infoContainer">
-      <div class="playerHealthContainer">
-        <div class="fullIndicator"></div>
-        <div class="playerHealth"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Akshar:wght@300&family=Fira+Sans:wght@300&family=Oswald:wght@300&family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="js/utils.js" defer></script>
+    <script src="js/classes.js" defer></script>
+    <script src="js/index.js" defer></script>
+    <title>Fighting Game</title>
+  </head>
+  <body>
+    <div class="mainContainer">
+      <div class="infoContainer">
+        <div class="playerHealthContainer">
+          <div class="fullIndicator"></div>
+          <div class="playerHealth"></div>
+        </div>
+        <div class="timer">60</div>
+        <div class="enemyHealthContainer">
+          <div class="fullIndicator"></div>
+          <div class="enemyHealth"></div>
+        </div>
       </div>
-      <div class="timer">60</div>
-      <div class="enemyHealthContainer">
-        <div class="fullIndicator"></div>
-        <div class="enemyHealth"></div>
-      </div>
+      <div class="finalInfo">Tie</div>
+      <canvas> </canvas>
     </div>
-    <div class="finalInfo">Tie</div>
-    <canvas>
-    </canvas>
-  </div>
-</body>
+  </body>
 </html>

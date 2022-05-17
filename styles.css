@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  font-family: 'Press Start 2P', cursive;
 }
 
 body {
@@ -9,6 +10,7 @@ body {
   align-items: center;
   margin: 0;
   padding: 0;
+  background-color: black;
 }
 
 .mainContainer {
@@ -27,7 +29,7 @@ body {
 
 .playerHealth {
   position: absolute;
-  background-color: blue;
+  background-color: #818cf8;
   top: 0;
   bottom: 0;
   right: 0;
@@ -38,23 +40,26 @@ body {
   position: relative;
   display: flex;
   justify-content: flex-end;
-  height: 30px;
   width: 100%;
+  border: 4px solid white;
+  border-right: 0;
 }
 
 .timer {
-  background-color: red;
+  background-color: black;
+  color: white;
   width: 100px;
-  height: 100px;
+  height: 50px;
   flex-shrink: 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 4px solid white;
 }
 
 .enemyHealth {
   position: absolute;
-  background-color: blue;
+  background-color: #818cf8;
   top: 0;
   bottom: 0;
   right: 0;
@@ -63,12 +68,13 @@ body {
 
 .enemyHealthContainer {
   position: relative;
-  height: 30px;
   width: 100%;
+  border: 4px solid white;
+  border-left: 0;
 }
 
 .fullIndicator {
-  background-color: yellow;
+  background-color: #be123c;
   height: 30px;
   width: 100%;
 }

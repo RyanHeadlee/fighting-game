@@ -35,16 +35,12 @@ const player = new Fighter({
     x: 0,
     y: 10,
   },
-  offset: {
-    x: 0,
-    y: 0,
-  },
   imageSrc: "./img/samuraiMack/Idle.png",
   framesMax: 8,
   scale: 2.5,
   offset: {
     x: 215,
-    y: 157
+    y: 157,
   },
   sprites: {
     idle: {
@@ -58,7 +54,7 @@ const player = new Fighter({
     jump: {
       imageSrc: "./img/samuraiMack/Jump.png",
       framesMax: 2,
-    }, 
+    },
     fall: {
       imageSrc: "./img/samuraiMack/Fall.png",
       framesMax: 2,
@@ -67,7 +63,15 @@ const player = new Fighter({
       imageSrc: "./img/samuraiMack/Attack1.png",
       framesMax: 6,
     },
-  }
+  },
+  attackBox: {
+    offset: {
+      x: 100,
+      y: 50,
+    },
+    width: 160,
+    height: 50,
+  },
 });
 
 const enemy = new Fighter({
@@ -79,17 +83,13 @@ const enemy = new Fighter({
     x: 0,
     y: 0,
   },
-  offset: {
-    x: -50,
-    y: 0,
-  },
   color: "blue",
   imageSrc: "./img/kenji/Idle.png",
   framesMax: 4,
   scale: 2.5,
   offset: {
     x: 215,
-    y: 169
+    y: 169,
   },
   sprites: {
     idle: {
@@ -103,7 +103,7 @@ const enemy = new Fighter({
     jump: {
       imageSrc: "./img/kenji/Jump.png",
       framesMax: 2,
-    }, 
+    },
     fall: {
       imageSrc: "./img/kenji/Fall.png",
       framesMax: 2,
@@ -112,7 +112,15 @@ const enemy = new Fighter({
       imageSrc: "./img/kenji/Attack1.png",
       framesMax: 4,
     },
-  }
+  },
+  attackBox: {
+    offset: {
+      x: 0,
+      y: 0,
+    },
+    width: 100,
+    height: 50,
+  },
 });
 
 const keys = {
@@ -147,37 +155,37 @@ function animate() {
   // Player Movement
   if (keys.a.pressed && player.lastKey === "a") {
     player.velocity.x = -5;
-    player.switchSprite('run');
+    player.switchSprite("run");
   } else if (keys.d.pressed && player.lastKey === "d") {
     player.velocity.x = 5;
-    player.switchSprite('run');
+    player.switchSprite("run");
   } else {
-    player.switchSprite('idle');
+    player.switchSprite("idle");
   }
 
   // Jumping
   if (player.velocity.y < 0) {
-    player.switchSprite('jump');
+    player.switchSprite("jump");
   } else if (player.velocity.y > 0) {
-    player.switchSprite('fall');
+    player.switchSprite("fall");
   }
 
   // Enemy Movement
   if (keys.ArrowLeft.pressed && enemy.lastKey === "ArrowLeft") {
     enemy.velocity.x = -5;
-    enemy.switchSprite('run');
+    enemy.switchSprite("run");
   } else if (keys.ArrowRight.pressed && enemy.lastKey === "ArrowRight") {
     enemy.velocity.x = 5;
-    enemy.switchSprite('run');
+    enemy.switchSprite("run");
   } else {
-    enemy.switchSprite('idle');
+    enemy.switchSprite("idle");
   }
 
   // Jumping
   if (enemy.velocity.y < 0) {
-    enemy.switchSprite('jump');
+    enemy.switchSprite("jump");
   } else if (enemy.velocity.y > 0) {
-    enemy.switchSprite('fall');
+    enemy.switchSprite("fall");
   }
 
   // Detect collision
@@ -186,11 +194,17 @@ function animate() {
       rectangle1: player,
       rectangle2: enemy,
     }) &&
-    player.isAttacking == true
+    player.isAttacking == true &&
+    player.framesCurrent === 4
   ) {
     player.isAttacking = false;
     enemy.health -= 20;
     document.querySelector(".enemyHealth").style.width = enemy.health + "%";
+  }
+
+  // If player missed
+  if (player.isAttacking && player.framesCurrent === 4) {
+    player.isAttacking = false;
   }
 
   if (
